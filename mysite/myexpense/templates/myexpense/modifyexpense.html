@@ -1,0 +1,16 @@
+{% extends 'myexpense/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container" style="width: 500px">
+    <h2 class="mt-5 mb-4">Modify Expense</h2>
+    <form method="post" >
+        {% csrf_token %}
+        <input placeholder="Type" value="{{expense.type}}" type="text" name="type" id="type">
+        <input placeholder="Fee" value="{{expense.fee}}" type="text" name="fee" id="fee">
+        <input placeholder="Payment Date" value="{{expense.payment_date}}" type="text" name="payment_date" id="payment_date">
+        <button type="submit" class="btn btn-primary">Modify Expense</button>
+    </form>
+</div>
+<br>
+{% endblock %}

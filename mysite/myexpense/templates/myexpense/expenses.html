@@ -1,0 +1,44 @@
+{% extends 'myexpense/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <h1 class="mt-5 mb-4 d-flex justify-content-center">Expense Management Dashboard</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Type</th>
+            <th>Fee</th>
+            <th>Payment Date</th>
+            <th>Modify</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.type }}</td>
+            <td>{{ expense.fee }}</td>
+            <td>{{ expense.payment_date }}</td>
+            <td>
+                <form method="get" action="{% url 'myexpense:modify_expense' expense.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Modify</button>
+                </form>
+            </td>
+            <td>
+                <form method="get" action="{% url 'myexpense:delete_expense' expense.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </td>
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
