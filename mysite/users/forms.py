@@ -12,8 +12,7 @@ class NewUserForm(UserCreationForm):
                                 widget=forms.PasswordInput(attrs={'class': 'border-0 focus:outline-none'}))
     password2 = forms.CharField(required=True,
                                 widget=forms.PasswordInput(attrs={'class': 'border-0 focus:outline-none'}))
-
-    # budget = forms.FloatField(required=True, widget=forms.PasswordInput(attrs={'class': 'border-0 focus:outline-none'}))
+    budget = forms.IntegerField(required=False)
 
     class Meta:
         model = User

@@ -1,44 +1,20 @@
-{% extends 'myexpense/base.html' %}
+{% extends 'myexpense/base2.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<h1 class="text-2xl text-center">SignUp</h1>
+<div class=" container pt-4 pt-xl-5">
+    <h1 class="text-2xl text-center">Sign Up</h1>
 
 
-<div class="container py-5 w-200 " style="max-width: 400px">
-    <form method="post">
-        {% csrf_token %}
-        {{form|crispy}}
-        <!--                <div class="mb-3">-->
-        <!--                    <label for="username" class="form-label">Username</label>-->
-        <!--                    <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700 leading-tight">-->
-        <!--                        {{ form.username }}-->
-        <!--                    </div>-->
+    <div class="container py-5 w-200 " style="max-width: 400px">
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
 
-        <!--                </div>-->
-        <!--                <div class="mb-3">-->
-        <!--                    <label for="email" class="form-label">Email</label>-->
-        <!--                    <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700 leading-tight">-->
-        <!--                        {{ form.email }}-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="mb-3">-->
-        <!--                    <label for="password1" class="form-label">Password</label>-->
-        <!--                    <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700 leading-tight">-->
-        <!--                        {{ form.password1 }}-->
-        <!--                    </div>-->
-
-        <!--                </div>-->
-        <!--                <div class="mb-3">-->
-        <!--                    <label for="password2" class="form-label">Enter Password Again</label>-->
-        <!--                    <div class="shadow appearance-none border rounded py-2 px-3 mr-10 text-gray-700 leading-tight">-->
-        <!--                        {{ form.password2 }}-->
-        <!--                    </div>-->
-        <!--                </div>-->
-
-
-        <button type="submit" class="btn btn-primary">Sign Up</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
 </div>
+
 
 {% endblock %}
 

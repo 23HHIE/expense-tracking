@@ -2,39 +2,32 @@
 
 {% block content %}
 {% load static %}
+
+
 <div class=" container pt-4 pt-xl-5">
     <div class="row pt-5">
-        <div>
-            <div class="col-md-8 col-xl-6 text-center text-md-start mx-auto">
-                <div class="text-center">
-                    <p class="fw-bold text-success mb-2">Welcome to WiseSpend</p>
-                    <h1 class="fw-bold">Track every single euro effortlessly in your life</h1>
-                </div>
+        <div class="col-md-6 col-xl-6 text-center text-md-start" style="margin-bottom: 20px;">
+            </br>
+            <div class="text-center" style="margin-bottom: 20px;">
+                <p class="fw-bold text-success mb-2">Welcome to WiseSpend</p>
+                <h1 class="fw-bold">Track every single euro effortlessly in your life</h1>
             </div>
-            <div class="col-12 col-lg-10 mx-auto">
-                <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;">
-                     <div style="position: relative;flex: 0 0 35%;transform: translate3d(-15%, 35%, 0);">
-                        <img
-                                class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.8"
-                                src="{% static 'myexpense/images/1.jpg' %}"/>
-                    </div>
-                    <div style="position: relative;flex: 0 0 35%;transform: translate3d(-5%, 20%, 0);">
-                        <img
-                                class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.4"
-                                src="{% static 'myexpense/images/2.jpg' %}"/>
-                    </div>
-                    <div style="position: relative;flex: 0 0 50%;transform: translate3d(0, 0%, 0);">
-                        <img
-                                class="img-fluid" data-bss-parallax data-bss-parallax-speed="0.25"
-                                src="{% static 'myexpense/images/3.jpg' %}"/>
-                    </div>
-
+            <div class="row justify-content-center" style="margin-bottom: 20px;">
+                <div class="col-md-4 col-xl-6 text-center">
                     <a href="/users/register" class="btn btn-primary mt-4">Sign Up</a>
                     <a href="/users/login" class="btn btn-secondary mt-4">Log In</a>
                 </div>
             </div>
+            </br>
+        </div>
+
+        <div class="col-md-8 col-xl-6 text-center" style="margin-bottom: 20px;">
+            <div class="text-center position-relative">
+                <img class="img-fluid" src="{% static 'myexpense/images/landing.jpg' %}" style="width: 800px;">
+            </div>
         </div>
     </div>
+
 </div>
 
 

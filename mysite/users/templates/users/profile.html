@@ -1,6 +1,24 @@
 {% extends 'myexpense/base2.html' %}
 {% block content %}
-<h1>{{user.username}}</h1>
-<h1>{{user.email}}</h1>
-<h1>{{user.budget}}</h1>
+<div class=" container pt-4 pt-xl-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Here's Your Profile</h5>
+            <p class="card-text">
+                <strong>Username:</strong> <span id="username">{{user.username}}</span><br>
+                <strong>Email:</strong> <span id="email">{{user.email}}</span><br>
+                <strong>Budget: € </strong> <span id="budget">{{user.budget.amount}}</span>
+            <form id="updateBudgetForm" method="post" action="{% url 'myexpense:update_budget' user.id %}">
+                {% csrf_token %}
+                <label for="budgetAmount">Update Budget Amount: € </label>
+                <input type="text" id="budgetAmount" name="budgetAmount">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+            </p>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

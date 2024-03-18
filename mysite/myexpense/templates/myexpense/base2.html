@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}WiseSpend: Track Your Money Wisely{% endblock %}</title>
-    <link href="https://bootswatch.com/5/journal/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://bootswatch.com/5/sandstone/bootstrap.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
 <main>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
+            <a class="navbar-brand" href="/expense/">
+                <img src="{% static 'myexpense/images/logo.png' %}" alt="Wise Spend">
+            </a>
             <a class="navbar-brand" href="/expense/">WiseSpend</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,11 +28,12 @@
                         <a class="nav-link active" aria-current="page"
                            href="{% url 'myexpense:landing_page' %}">Home</a>
                     </li>
-                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'myexpense:expense_list' %}">Expense Details</a>
                     </li>
-
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <form method="post" action="{% url 'users:logout' %}">
                             {% csrf_token %}
@@ -36,38 +41,37 @@
                         </form>
                     </li>
 
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:profile' %}">Profile</a>
+                    <li class="nav-item"  >
+                        <a class="nav-link" href="{% url 'users:profile' %}">
+                            <img src="{% static 'myexpense/images/user.png' %}" alt="Profile" style="height:30px;">
+                        </a>
                     </li>
+
                     {% else %}
 
-                    <li class="nav-item float-end">
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:login' %}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:register' %}">Sign Up</a>
                     </li>
                     {% endif %}
-
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
-    {% block content %}
 
-    {% endblock %}
-</div>
+
+    <div class="container mt-5">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
 </main>
 
 
-
-<footer class="footer mt-auto py-3 bg-body-tertiary">
+<footer class="footer mt-auto py-3 bg-body-tertiary" style="position: fixed; bottom: 0; width: 100%;">
     <div class="container">
         <span class="text-body-secondary">Place sticky footer content here.</span>
     </div>

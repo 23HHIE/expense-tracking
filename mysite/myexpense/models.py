@@ -2,6 +2,7 @@ from datetime import timezone
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -27,7 +28,7 @@ class Budget(models.Model):
     # Define a method to calculate the amount of the remaining budget
     def get_remaining_budget(self):
         # Fetch the current date
-        today = timezone.now().date()
+        today = now().date()
         # Fetch the first date of the current month
         start_day = today.replace(day=1)
         # Aggregate all the spending
@@ -38,7 +39,7 @@ class Budget(models.Model):
         ).aggregate(total_expenses=models.Sum('fee'))['total_expenses'] or 0
         # Calculate the current budget remaining by subtracting the cost from the budget
         remaining_budget = self.amount - cost_this_month
-        return remaining_budget
+        return round(remaining_budget, 2)
 
     def __str__(self):
-        return f"{self.user.username} - Budget: ${self.amount}"
+        return f"{self.user.username} - Budget: {self.amount}"

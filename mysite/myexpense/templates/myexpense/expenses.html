@@ -3,42 +3,62 @@
 {% block content %}
 
 
-<div class="container">
-    <h1 class="mt-5 mb-4 d-flex justify-content-center">Expense Management Dashboard</h1>
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th>Type</th>
-            <th>Fee</th>
-            <th>Payment Date</th>
-            <th>Modify</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for expense in expenses %}
-        <tr>
-            <td>{{ expense.type }}</td>
-            <td>{{ expense.fee }}</td>
-            <td>{{ expense.payment_date }}</td>
-            <td>
-                <form method="get" action="{% url 'myexpense:modify_expense' expense.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary">Modify</button>
-                </form>
-            </td>
-            <td>
-                <form method="get" action="{% url 'myexpense:delete_expense' expense.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                </form>
-            </td>
+<div class="container pt-4 pt-xl-5" style="margin-bottom: 100px">
+    <div>
+        <h1 class="mt-3 mb-5 d-flex justify-content-center">Expense Management Dashboard</h1>
+        <div class="card mb-4 col-3">
+            <div class="card-body">
+                <h5 class="card-title">Remaining Budget for Current Month</h5>
+                <p class="card-text">€ {{ user.budget.get_remaining_budget }}</p>
+            </div>
+        </div>
 
+        <div style="padding-bottom: 50px;">
+            <table class="table" style="border-collapse: collapse;line-height: 1.5;padding: 0.2em">
+                <thead class="thead-light">
+                <tr>
+                    <th>Type</th>
+                    <th>Fee</th>
+                    <th>Payment Date</th>
+                    <th>Modify</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.type }}</td>
+                    <td>€ {{ expense.fee }}</td>
+                    <td>{{ expense.payment_date }}</td>
+                    <td>
+                        <form method="get" action="{% url 'myexpense:modify_expense' expense.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-dark btn-sm">Modify</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" action="{% url 'myexpense:delete_expense' expense.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-primary btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="d-flex justify-content-center">
+            <form method="get" action="{% url 'myexpense:add_expense' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-success btn-md">Add Expense</button>
+            </form>
+        </div>
+    </div>
 </div>
+
+
+
 
 
 {% endblock %}
