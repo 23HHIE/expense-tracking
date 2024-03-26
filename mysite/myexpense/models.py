@@ -41,5 +41,13 @@ class Budget(models.Model):
         remaining_budget = self.amount - cost_this_month
         return round(remaining_budget, 2)
 
+    def get_remaining_budget_percentage(self):
+        remaining_budget = self.get_remaining_budget()
+        if self.amount != 0:
+            percentage = round((remaining_budget / self.amount) * 100, 2)
+            return percentage
+        else:
+            return 0
+
     def __str__(self):
         return f"{self.user.username} - Budget: {self.amount}"
