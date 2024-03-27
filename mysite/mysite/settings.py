@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-3imnp62_i!@q!sb6byc6bggo+d*c4ck59$xydkl*0*de5skqkc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '24af20355ec14a48acaaa5a682646da4.vfs.cloud9.eu-west-1.amazonaws.com',
+    ]
 
 
 # Application definition
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CSRF_TRUSTED_ORIGINS = ['https://24af20355ec14a48acaaa5a682646da4.vfs.cloud9.eu-west-1.amazonaws.com']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
