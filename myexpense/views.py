@@ -34,8 +34,8 @@ def add_expense(request):
 
 
 @login_required
-def modify_expense(request, id):
-    expense = Expense.objects.get(id=id)
+def modify_expense(request, expense_id):
+    expense = Expense.objects.get(id=expense_id)
     if request.method == 'POST':
         expense.type = request.POST.get('type')
         expense.fee = request.POST.get('fee')
@@ -49,8 +49,8 @@ def modify_expense(request, id):
 
 
 @login_required
-def delete_expense(request, id):
-    expense = get_object_or_404(Expense, id=id)
+def delete_expense(request, expense_id):
+    expense = get_object_or_404(Expense, id=expense_id)
     context = {'expense': expense}
     if request.method == 'POST':
         expense.delete()
@@ -59,8 +59,8 @@ def delete_expense(request, id):
 
 
 @login_required
-def update_budget(request, id):
-    user = get_object_or_404(User, id=id)
+def update_budget(request, user_id):
+    user = get_object_or_404(User, id=user_id)
     budget, created = Budget.objects.get_or_create(user=user)
 
     form = BudgetForm(request.POST or None, instance=budget)
