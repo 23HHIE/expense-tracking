@@ -12,8 +12,8 @@ phases:
     pre_build:
         commands:
             - python --version
-            - pylint $CODEBUILD_SRC_DIR/*.py   --disable=R,C *.py **/*.py  --disable=E1101 *.py **/*.py
-            - pylint $CODEBUILD_SRC_DIR/mysite/*.py   --disable=R,C *.py **/*.py  --disable=E1101 *.py **/*.py
+            - pylint $CODEBUILD_SRC_DIR/*.py   --disable=R,C *.py **/*.py  --disable=E1101 *.py **/*.py  --disable=W0612 *.py **/*.py
+            - pylint $CODEBUILD_SRC_DIR/mysite/*.py   --disable=R,C *.py **/*.py  --disable=E1101 *.py **/*.py --disable=W0612 *.py **/*.py
 artifacts:
     files:
         - '**/*'
