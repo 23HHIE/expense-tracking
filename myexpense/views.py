@@ -1,11 +1,11 @@
 from datetime import datetime
-
+from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
 from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from .models import Expense, Budget
-from .forms import ExpenseForm, BudgetForm
+from .forms import ExpenseForm, UpdateBudgetForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -59,14 +59,18 @@ def delete_expense(request, expense_id):
 
 
 @login_required
+@require_POST
 def update_budget(request, user_id):
     user = get_object_or_404(User, id=user_id)
     budget, created = Budget.objects.get_or_create(user=user)
-
-    form = BudgetForm(request.POST or None, instance=budget)
-    if form.is_valid():
-        budget_amount = form.cleaned_data['budgetAmount']
-        budget.amount = budget_amount
-        budget.save()
+    if request.method == 'POST':
+        form = UpdateBudgetForm(request.POST)
+        if form.is_valid():
+            budget_amount = form.cleaned_data['budgetAmount']
+            budget.amount = budget_amount
+            budget.save()
+            
+        else:
+            print("Form errors:", form.errors)
 
     return redirect('users:profile')

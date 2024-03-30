@@ -16,6 +16,6 @@ urlpatterns = [
     # delete expense
     path('delete/<int:expense_id>/', views.delete_expense, name='delete_expense'),
 
-    path('setbudget/<int:id>/', views.update_budget, name='update_budget'),
+    path('setbudget/<int:user_id>/', views.update_budget, name='update_budget'),
 
 ]
