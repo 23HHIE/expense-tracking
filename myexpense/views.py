@@ -1,7 +1,6 @@
 from datetime import datetime
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
-from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView
 from .models import Expense, Budget
@@ -62,7 +61,7 @@ def delete_expense(request, expense_id):
 @require_POST
 def update_budget(request, user_id):
     user = get_object_or_404(User, id=user_id)
-    budget, created = Budget.objects.get_or_create(user=user)
+    budget, _ = Budget.objects.get_or_create(user=user)
     if request.method == 'POST':
         form = UpdateBudgetForm(request.POST)
         if form.is_valid():
