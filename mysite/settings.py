@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3imnp62_i!@q!sb6byc6bggo+d*c4ck59$xydkl*0*de5skqkc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# test the settings file
+
 ALLOWED_HOSTS = [
     '24af20355ec14a48acaaa5a682646da4.vfs.cloud9.eu-west-1.amazonaws.com',
     'x22180966wise-env.eba-e9euipww.eu-west-1.elasticbeanstalk.com',
