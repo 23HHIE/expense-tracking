@@ -14,7 +14,7 @@ class NewUserForm(UserCreationForm):
     max_length = 30
     message_lt_min = f"At least {min_length} characters."
     message_ht_max = f"At most{max_length} characters."
-    name_regex='\A[a-zA-Z]+\Z'
+    
     name_message='The username only accepts letters!'
     username = forms.CharField(required=True,
                                 validators=[

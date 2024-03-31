@@ -6,7 +6,7 @@ class InputValidator:
         self.min_special_characters = min_special_characters
         self.special_characters = set(string.punctuation)
 
-    def validate(self, password, user=None):
+    def validate(self, password):
         self.validate_special_characters(password)
         self.validate_uppercase_first_letter(password)
 
