@@ -10,7 +10,7 @@ def register(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            return redirect('/expense/')
+            return redirect('myexpense:landing_page')
         else:
             print(form.errors)
 
