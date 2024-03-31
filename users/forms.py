@@ -20,7 +20,6 @@ class NewUserForm(UserCreationForm):
                                 validators=[
                                             validators.MinLengthValidator(min_length, message_lt_min),
                                             validators.MaxLengthValidator(max_length, message_ht_max),
-                                            validators.RegexValidator(name_regex, name_message)],
                                 widget=forms.TextInput(attrs=common_attrs))
     # encrypt password input
     password1 = forms.CharField(required=True,
