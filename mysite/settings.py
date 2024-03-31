@@ -28,8 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '24af20355ec14a48acaaa5a682646da4.vfs.cloud9.eu-west-1.amazonaws.com',
-    'x22180966wise-env.eba-e9euipww.eu-west-1.elasticbeanstalk.com/wisespend/',
+    'x22180966wise-env.eba-e9euipww.eu-west-1.elasticbeanstalk.com/',
     '54.154.109.13',
+    'awseb--awseb-eltz1fj4bjji-1277922931.eu-west-1.elb.amazonaws.com',
     ]
 
 CSRF_TRUSTED_ORIGINS = ['https://24af20355ec14a48acaaa5a682646da4.vfs.cloud9.eu-west-1.amazonaws.com']
