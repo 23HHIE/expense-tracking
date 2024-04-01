@@ -1,10 +1,10 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: x22180966:6cc186e0c2828ba25a5f98d7e5624a7b0c0ef88a
-    HOST: x22180966:https://sonarcloud.io
-    Organization: x22180966:luckyhuihuang
-    Project: x22180966:luckyhuihuang_wisespend
+    LOGIN: x22180966-security:ccbd78ed32ece1916c7e19c921b22c4f07cdb884
+    HOST: x22180966-security:https://sonarcloud.io
+    Organization: x22180966-security:HUIHUANG
+    Project: x22180966-security:Wisespend
     
 phases:
   pre_build:
