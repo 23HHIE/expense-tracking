@@ -1,10 +1,11 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: x22180966/prod/sonarcloud:sonartoken
-    HOST: x22180966/prod/sonarcloud:HOST
-    Organization: luckyhuihuang/prod/sonarcloud:Organization
-    Project: luckyhuihuang_wisespend/prod/sonarcloud:Project
+    LOGIN: x22180966:sonartoken
+    HOST: x22180966:HOST
+    Organization: luckyhuihuang:Organization
+    Project: luckyhuihuang_wisespend:Project
+    
 phases:
   pre_build:
     commands:
