@@ -1,10 +1,10 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: x22180966-sc:sonartoken
-    HOST: x22180966-sc:HOST
-    Organization: x22180966-sc:Organization
-    Project: x22180966-sc:Project
+    LOGIN: x22180966hh:sonartoken
+    HOST: x22180966hh:HOST
+    Organization: x22180966hh:Organization
+    Project: x22180966hh:Project
 phases:
   pre_build:
     commands:
