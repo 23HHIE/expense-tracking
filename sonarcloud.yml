@@ -14,6 +14,7 @@ phases:
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
       - unzip ./sonar-scanner-cli-5.0.1.3006-linux.zip
       - export PATH=$PATH:$PWD/sonar-scanner-5.0.1.3006-linux/bin/
+      
   build:
     commands:
       - sonar-scanner -X -Dsonar.login=$LOGIN -Dsonar.projectKey=$Project -Dsonar.host.url=$HOST -Dsonar.organization=$Organization
