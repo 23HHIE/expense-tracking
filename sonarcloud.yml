@@ -1,10 +1,10 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: x22180966sonar:sonartoken
-    HOST: x22180966:HOST
-    Organization: x22180966:Organization
-    Project: x22180966:Project
+    LOGIN: x22180966:6cc186e0c2828ba25a5f98d7e5624a7b0c0ef88a
+    HOST: x22180966:https://sonarcloud.io
+    Organization: x22180966:luckyhuihuang
+    Project: x22180966:luckyhuihuang_wisespend
     
 phases:
   pre_build:
