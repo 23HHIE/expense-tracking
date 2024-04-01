@@ -5,7 +5,6 @@ env:
     HOST: x22180966-sc:HOST
     Organization: x22180966-sc:Organization
     Project: x22180966-sc:Project
-    
 phases:
   pre_build:
     commands:
