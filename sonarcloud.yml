@@ -1,10 +1,10 @@
 version: 0.2
 env:
   secrets-manager:
-    LOGIN: x22180966-sc:737565f08180e75869113fa9defef7d28b76db35
-    HOST: x22180966-sc:https://sonarcloud.io
-    Organization: x22180966-sc:HuiHuang
-    Project: x22180966-sc:expense
+    LOGIN: x22180966-sc:sonartoken
+    HOST: x22180966-sc:HOST
+    Organization: x22180966-sc:Organization
+    Project: x22180966-sc:Project
     
 phases:
   pre_build:
