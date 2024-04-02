@@ -18,7 +18,9 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 
 urlpatterns = [
+    # navigate to the root route
     path('', RedirectView.as_view(url='/wisespend/')),
+    # 
     path('users/', include('users.urls')),
     path('wisespend/', include('myexpense.urls')),
     path('admin/', admin.site.urls),
