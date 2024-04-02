@@ -43,6 +43,7 @@ def modify_expense(request, expense_id):
         expense.type = request.POST.get('type')
         expense.fee = request.POST.get('fee')
         payment_date_str = request.POST.get('payment_date')
+        # exchange the date formate
         if payment_date_str:
             expense.date = datetime.strptime(payment_date_str, '%B %d, %Y').date()
         expense.save()
@@ -51,28 +52,35 @@ def modify_expense(request, expense_id):
     return render(request, 'myexpense/modifyexpense.html', context)
 
 
+# a method for users to delete a specific expense
 @login_required
 def delete_expense(request, expense_id):
+    # fetch the expense requested
     expense = get_object_or_404(Expense, id=expense_id)
+    # store the expense to the context
     context = {'expense': expense}
     if request.method == 'POST':
+        # execute the in-builte deleted method
         expense.delete()
         return redirect('myexpense:expense_list')
     return render(request, 'myexpense/delete.html', context)
 
-
+# a method to update a budget
 @login_required
 @require_POST
 def update_budget(request, user_id):
+    # fetch the user requested
     user = get_object_or_404(User, id=user_id)
+    # retrieve the budget depense on the requested user, or create a new budget if there is none
     budget, _ = Budget.objects.get_or_create(user=user)
     if request.method == 'POST':
+        # store the value in the form
         form = UpdateBudgetForm(request.POST)
         if form.is_valid():
             budget_amount = form.cleaned_data['budgetAmount']
             budget.amount = budget_amount
             budget.save()
-            
+        # trace the eroor message 
         else:
             print("Form errors:", form.errors)
 
