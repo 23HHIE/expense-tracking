@@ -11,13 +11,14 @@ from django.contrib.auth.decorators import login_required
 class LandingPage(TemplateView):
     template_name = 'myexpense/landingpage.html'
 
-# a method to 
+# a method to showcase all the expense for the requestd user
 @login_required()
 def expense_list(request):
     expenses = Expense.objects.filter(user=request.user)
     return render(request, 'myexpense/expenses.html', {'expenses': expenses})
 
 
+# a method for users to add a new expense
 @login_required
 def add_expense(request):
     if request.method == 'POST':
@@ -32,10 +33,13 @@ def add_expense(request):
     return render(request, 'myexpense/addexpense.html', {'form': form})
 
 
+# a method for users to update an existed expense
 @login_required
 def modify_expense(request, expense_id):
+    # fetch the specific expense
     expense = Expense.objects.get(id=expense_id)
     if request.method == 'POST':
+        # fetch all the value of the expense
         expense.type = request.POST.get('type')
         expense.fee = request.POST.get('fee')
         payment_date_str = request.POST.get('payment_date')
