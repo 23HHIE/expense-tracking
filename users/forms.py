@@ -3,18 +3,20 @@ from django.contrib.auth.models import User
 from django import forms
 from django.core import validators
 
-
+# a class to define the sign up form
 class NewUserForm(UserCreationForm):
+    # store a css to a variable
     common_attrs = {'class': 'border-0 focus:outline-none'}
+    # defines the email input by using the in-build EmailField and validators
     email = forms.EmailField(required=True,
                             validators=[validators.validate_email],
                             widget=forms.EmailInput(attrs=common_attrs))
-                             
+                            #  
     min_length = 2
     max_length = 30
     message_lt_min = f"At least {min_length} characters."
     message_ht_max = f"At most{max_length} characters."
-    # need to add the name_regex afterwards
+   
     name_message='The username only accepts letters!'
     username = forms.CharField(required=True,
                                 validators=[
