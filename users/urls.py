@@ -4,12 +4,12 @@ from django.contrib.auth import views as authentication_view
 
 app_name = 'users'
 urlpatterns = [
-    # signup page
+    # navigate to the signup page
     path('register/', views.register, name='register'),
-    # login page
+    # navigate to the login page
     path('login/', authentication_view.LoginView.as_view(template_name='users/login.html'), name='login'),
-    # logout page
+    # navigate to the logout page
     path('logout/', authentication_view.LogoutView.as_view(next_page='/wisespend/'), name='logout'),
-    # decorator
+    # navigate to the profile page
     path('profile/', views.profile, name='profile')
 ]
