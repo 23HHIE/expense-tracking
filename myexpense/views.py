@@ -7,11 +7,11 @@ from .models import Expense, Budget
 from .forms import ExpenseForm, UpdateBudgetForm
 from django.contrib.auth.decorators import login_required
 
-
+# a simple template view of the landing page
 class LandingPage(TemplateView):
     template_name = 'myexpense/landingpage.html'
 
-
+# a method to 
 @login_required()
 def expense_list(request):
     expenses = Expense.objects.filter(user=request.user)

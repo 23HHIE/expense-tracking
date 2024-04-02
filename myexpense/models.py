@@ -41,8 +41,11 @@ class Budget(models.Model):
         remaining_budget = self.amount - cost_this_month
         return round(remaining_budget, 2)
 
+    # a method to retrieve the perentage of the remaining budget
     def get_remaining_budget_percentage(self):
+        # retrieve the available budget amount
         remaining_budget = self.get_remaining_budget()
+        # store the percentage by dividing the whole buget amount
         if self.amount != 0:
             percentage = round((remaining_budget / self.amount) * 100, 2)
             return percentage
