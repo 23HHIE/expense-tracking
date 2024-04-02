@@ -20,8 +20,10 @@ from django.views.generic import RedirectView
 urlpatterns = [
     # navigate to the root route
     path('', RedirectView.as_view(url='/wisespend/')),
-    # 
+    # navigate to the users app route
     path('users/', include('users.urls')),
+    # navigate to the myexpense app route
     path('wisespend/', include('myexpense.urls')),
+    # navigate to the admin route
     path('admin/', admin.site.urls),
 ]

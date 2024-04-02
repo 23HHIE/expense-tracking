@@ -1,3 +1,4 @@
+<!--load the -->
 {% extends 'myexpense/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -5,9 +6,7 @@
 <form method="POST">
     {% csrf_token %}
     {{ form|crispy }}
-<!--    <input placeholder="Type" type="text" name="type" id="type">-->
-<!--    <input placeholder="Fee" type="text" name="fee" id="fee">-->
-<!--    <input placeholder="Payment Date" type="date" name="payment_date" id="payment_date">-->
+ 
     <input type="submit" name="Add Expense" value="Add Expense">
 </form>
 {% endblock %}
