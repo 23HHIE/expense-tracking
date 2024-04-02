@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     '24af20355ec14a48acaaa5a682646da4.vfs.cloud9.eu-west-1.amazonaws.com',
     'x22180966expend-env.eba-dxnrbbmh.eu-west-1.elasticbeanstalk.com',
     'x22180966wisespend-env.eba-dxnrbbmh.eu-west-1.elasticbeanstalk.com',
-    '172.31.7.61',
+    '172.31.39.220',
     ]
     
 #CSRF configuration
