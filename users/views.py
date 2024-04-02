@@ -23,7 +23,7 @@ def register(request):
     return render(request, 'users/register.html', context)
 
 
-# a method to handle the 
+# a method to handle the profile page request
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
