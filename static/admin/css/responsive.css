@@ -507,10 +507,7 @@ input[type="submit"], button {
         padding: 10px;
     }
 
-    #changelist-filter {
-        margin-left: 0;
-    }
-
+   
     #changelist .actions label {
         flex: 1 1;
     }
@@ -525,6 +522,7 @@ input[type="submit"], button {
     }
 
     #changelist-filter {
+        margin-left: 0;
         position: static;
         width: auto;
         margin-top: 30px;

@@ -11,6 +11,13 @@ from django.contrib.auth.decorators import login_required
 class LandingPage(TemplateView):
     template_name = 'myexpense/landingpage.html'
 
+
+
+# set a viriable of the route to avoid duplication
+details_page = 'myexpense:expense_list'
+
+
+
 # a method to showcase all the expense for the requestd user
 @login_required()
 def expense_list(request):
@@ -27,7 +34,7 @@ def add_expense(request):
             expense = form.save(commit=False)
             expense.user = request.user
             expense.save()
-            return redirect('myexpense:expense_list')
+            return redirect(details_page)
     else:
         form = ExpenseForm()
     return render(request, 'myexpense/addexpense.html', {'form': form})
@@ -47,7 +54,7 @@ def modify_expense(request, expense_id):
         if payment_date_str:
             expense.date = datetime.strptime(payment_date_str, '%B %d, %Y').date()
         expense.save()
-        return redirect('myexpense:expense_list')
+        return redirect(details_page)
     context = {'expense': expense}
     return render(request, 'myexpense/modifyexpense.html', context)
     
@@ -63,7 +70,7 @@ def delete_expense(request, expense_id):
     if request.method == 'POST':
         # execute the in-builte deleted method
         expense.delete()
-        return redirect('myexpense:expense_list')
+        return redirect(details_page)
     return render(request, 'myexpense/delete.html', context)
 
 # a method to update a budget
