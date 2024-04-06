@@ -23,6 +23,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
